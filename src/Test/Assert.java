@@ -8,7 +8,8 @@
     public static Object checkThrows = (java.util.function.Function<Object, Object>) (fn) ->
         (java.util.function.Supplier<Object>) () -> {
             try {
-                ((java.util.function.Supplier<Object>) fn).get();
+                Object result = ((java.util.function.Function<Object, Object>) fn).apply(null);
+                if (result instanceof java.util.function.Supplier) ((java.util.function.Supplier<Object>) result).get();
                 return false;
             } catch (Throwable thrown) {
                 if (thrown instanceof RuntimeException) return true;
