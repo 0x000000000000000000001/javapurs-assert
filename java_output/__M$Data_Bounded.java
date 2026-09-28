@@ -2,18 +2,16 @@ public class __M$Data_Bounded {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Data.Bounded"); }
     };
-    public static Object bottomChar = FFI_STUB;
-    public static Object bottomChar(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Bounded.bottomChar"); }
-    public static Object bottomInt = FFI_STUB;
-    public static Object bottomInt(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Bounded.bottomInt"); }
-    public static Object bottomNumber = FFI_STUB;
-    public static Object bottomNumber(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Bounded.bottomNumber"); }
-    public static Object topChar = FFI_STUB;
-    public static Object topChar(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Bounded.topChar"); }
-    public static Object topInt = FFI_STUB;
-    public static Object topInt(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Bounded.topInt"); }
-    public static Object topNumber = FFI_STUB;
-    public static Object topNumber(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Bounded.topNumber"); }
+    // FFI provided by ../javapurs-prelude/src/Data/Bounded.java
+    public static Object topInt = Integer.MAX_VALUE;
+    public static Object bottomInt = Integer.MIN_VALUE;
+
+    public static Object topChar = String.valueOf((char) 65535);
+    public static Object bottomChar = String.valueOf((char) 0);
+
+    public static Object topNumber = Double.POSITIVE_INFINITY;
+    public static Object bottomNumber = Double.NEGATIVE_INFINITY;
+
 
 public static final Object topRecord = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("topRecord"); };
 public static final Object top = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("top"); };

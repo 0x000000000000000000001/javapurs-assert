@@ -2,30 +2,52 @@ public class __M$Effect_Console {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Effect.Console"); }
     };
-    public static Object clear = FFI_STUB;
-    public static Object clear(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.clear"); }
-    public static Object debug = FFI_STUB;
-    public static Object debug(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.debug"); }
-    public static Object error = FFI_STUB;
-    public static Object error(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.error"); }
-    public static Object group = FFI_STUB;
-    public static Object group(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.group"); }
-    public static Object groupCollapsed = FFI_STUB;
-    public static Object groupCollapsed(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.groupCollapsed"); }
-    public static Object groupEnd = FFI_STUB;
-    public static Object groupEnd(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.groupEnd"); }
-    public static Object info = FFI_STUB;
-    public static Object info(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.info"); }
-    public static Object log = FFI_STUB;
-    public static Object log(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.log"); }
-    public static Object time = FFI_STUB;
-    public static Object time(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.time"); }
-    public static Object timeEnd = FFI_STUB;
-    public static Object timeEnd(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.timeEnd"); }
-    public static Object timeLog = FFI_STUB;
-    public static Object timeLog(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.timeLog"); }
-    public static Object warn = FFI_STUB;
-    public static Object warn(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.Console.warn"); }
+    // FFI provided by ../javapurs-console/src/Effect/Console.java
+    public static Object log = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.out.println((String) s); return null; };
+
+    public static Object warn = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.err.println((String) s); return null; };
+
+    public static Object error = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.err.println((String) s); return null; };
+
+    public static Object info = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.out.println((String) s); return null; };
+
+    public static Object debug = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.out.println((String) s); return null; };
+
+    // Named timers, like the Node console keeps.
+    private static final java.util.Map<String, Long> __consoleTimers = new java.util.HashMap<>();
+
+    private static void __consoleTimeLog(String label, boolean end) {
+        Long started = __consoleTimers.get(label);
+        double elapsed = started == null ? 0.0 : (System.nanoTime() - started) / 1000000.0;
+        System.out.println(label + ": " + elapsed + " ms");
+        if (end) __consoleTimers.remove(label);
+    }
+
+    public static Object time = (java.util.function.Function<Object, Object>) (label) ->
+        (java.util.function.Supplier<Object>) () -> { __consoleTimers.put((String) label, System.nanoTime()); return null; };
+
+    public static Object timeLog = (java.util.function.Function<Object, Object>) (label) ->
+        (java.util.function.Supplier<Object>) () -> { __consoleTimeLog((String) label, false); return null; };
+
+    public static Object timeEnd = (java.util.function.Function<Object, Object>) (label) ->
+        (java.util.function.Supplier<Object>) () -> { __consoleTimeLog((String) label, true); return null; };
+
+    public static Object clear = (java.util.function.Supplier<Object>) () ->
+        { System.out.print("\033[H\033[2J"); System.out.flush(); return null; };
+
+    public static Object group = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.out.println((String) s); return null; };
+
+    public static Object groupCollapsed = (java.util.function.Function<Object, Object>) (s) ->
+        (java.util.function.Supplier<Object>) () -> { System.out.println((String) s); return null; };
+
+    public static Object groupEnd = (java.util.function.Supplier<Object>) () -> null;
+
 
 public static final Object warnShow = (java.util.function.Function<Object, Object>) (dictShow_0_i0) -> { return (java.util.function.Function<Object, Object>) (a_1_i1) -> { return ((java.util.function.Function<Object, Object>) (__M$Effect_Console.warn)).apply(((java.util.function.Function<Object, Object>) (((java.util.Map<String, Object>) dictShow_0_i0).get("show"))).apply(a_1_i1)); }; };
 public static final Object logShow = (java.util.function.Function<Object, Object>) (dictShow_0_i0) -> { return (java.util.function.Function<Object, Object>) (a_1_i1) -> { return ((java.util.function.Function<Object, Object>) ((java.util.function.Function<Object, Object>) (arg) -> (java.util.function.Supplier<Object>) () -> { System.out.println(arg); return null; })).apply(((java.util.function.Function<Object, Object>) (((java.util.Map<String, Object>) dictShow_0_i0).get("show"))).apply(a_1_i1)); }; };

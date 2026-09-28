@@ -2,8 +2,21 @@ public class __M$Control_Apply {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Control.Apply"); }
     };
-    public static Object arrayApply = FFI_STUB;
-    public static Object arrayApply(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Control.Apply.arrayApply"); }
+    // FFI provided by ../javapurs-prelude/src/Control/Apply.java
+    public static Object arrayApply = (java.util.function.Function<Object, Object>) (fs) ->
+        (java.util.function.Function<Object, Object>) (xs) -> {
+            Object[] functions = (Object[]) fs;
+            Object[] values = (Object[]) xs;
+            Object[] result = new Object[functions.length * values.length];
+            int next = 0;
+            for (Object function : functions) {
+                for (Object value : values) {
+                    result[next++] = ((java.util.function.Function<Object, Object>) function).apply(value);
+                }
+            }
+            return result;
+        };
+
 
 public static final Object applyProxy = (new java.util.function.Supplier<Object>() { public Object get() { final Object __field0 = (java.util.function.Function<Object, Object>) (v_0_i0) -> { return (java.util.function.Function<Object, Object>) (v1_1_i1) -> { return __M$Type_Proxy.__singleton$Proxy.value; }; }; final Object __field1 = (java.util.function.Function<Object, Object>) (_dollar___unused_0_i2) -> { return __M$Data_Functor.functorProxy; }; return new __Record$46_75_6e_63_74_6f_72_30_O$61_70_70_6c_79_O(new String[]{"apply", "Functor0"}, __field1, __field0); } }).get();
 public static final Object applyFn = (new java.util.function.Supplier<Object>() { public Object get() { final Object __field0 = (java.util.function.Function<Object, Object>) (f_0_i0) -> { return (java.util.function.Function<Object, Object>) (g_1_i1) -> { return (java.util.function.Function<Object, Object>) (x_2_i2) -> { return ((java.util.function.Function<Object, Object>) (((java.util.function.Function<Object, Object>) (f_0_i0)).apply(x_2_i2))).apply(((java.util.function.Function<Object, Object>) (g_1_i1)).apply(x_2_i2)); }; }; }; final Object __field1 = (java.util.function.Function<Object, Object>) (_dollar___unused_0_i3) -> { return __M$Data_Functor.functorFn; }; return new __Record$46_75_6e_63_74_6f_72_30_O$61_70_70_6c_79_O(new String[]{"apply", "Functor0"}, __field1, __field0); } }).get();

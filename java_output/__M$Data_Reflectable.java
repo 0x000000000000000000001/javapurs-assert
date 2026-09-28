@@ -2,8 +2,9 @@ public class __M$Data_Reflectable {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Data.Reflectable"); }
     };
-    public static Object unsafeCoerce = FFI_STUB;
-    public static Object unsafeCoerce(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Reflectable.unsafeCoerce"); }
+    // FFI provided by ../javapurs-prelude/src/Data/Reflectable.java
+    public static Object unsafeCoerce = (java.util.function.Function<Object, Object>) (arg) -> arg;
+
 
 public static final Object reifiableString = (new java.util.function.Supplier<Object>() { public Object get() { return new __Record$(new String[]{}); } }).get();
 public static final Object reifiableOrdering = (new java.util.function.Supplier<Object>() { public Object get() { return new __Record$(new String[]{}); } }).get();

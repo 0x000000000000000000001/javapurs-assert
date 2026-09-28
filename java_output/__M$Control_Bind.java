@@ -2,8 +2,19 @@ public class __M$Control_Bind {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Control.Bind"); }
     };
-    public static Object arrayBind = FFI_STUB;
-    public static Object arrayBind(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Control.Bind.arrayBind"); }
+    // FFI provided by ../javapurs-prelude/src/Control/Bind.java
+    public static Object arrayBind = (java.util.function.Function<Object, Object>) (arrObj) -> (java.util.function.Function<Object, Object>) (f) -> {
+        Object[] arr = (Object[]) arrObj;
+        java.util.List<Object> result = new java.util.ArrayList<>();
+        for (Object item : arr) {
+            Object[] mapped = (Object[]) ((java.util.function.Function<Object, Object>) f).apply(item);
+            for (Object mappedItem : mapped) {
+                result.add(mappedItem);
+            }
+        }
+        return result.toArray(new Object[0]);
+    };
+
 
 public static final Object discard = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("discard"); };
 public static final Object bindProxy = (new java.util.function.Supplier<Object>() { public Object get() { final Object __field0 = (java.util.function.Function<Object, Object>) (v_0_i0) -> { return (java.util.function.Function<Object, Object>) (v1_1_i1) -> { return __M$Type_Proxy.__singleton$Proxy.value; }; }; final Object __field1 = (java.util.function.Function<Object, Object>) (_dollar___unused_0_i2) -> { return __M$Control_Apply.applyProxy; }; return new __Record$41_70_70_6c_79_30_O$62_69_6e_64_O(new String[]{"bind", "Apply0"}, __field1, __field0); } }).get();

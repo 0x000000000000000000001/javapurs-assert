@@ -2,14 +2,12 @@ public class __M$Data_Semiring {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Data.Semiring"); }
     };
-    public static Object intAdd = FFI_STUB;
-    public static Object intAdd(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Semiring.intAdd"); }
-    public static Object intMul = FFI_STUB;
-    public static Object intMul(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Semiring.intMul"); }
-    public static Object numAdd = FFI_STUB;
-    public static Object numAdd(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Semiring.numAdd"); }
-    public static Object numMul = FFI_STUB;
-    public static Object numMul(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Semiring.numMul"); }
+    // FFI provided by ../javapurs-prelude/src/Data/Semiring.java
+    public static Object intAdd = (java.util.function.Function<Object, Object>) (x) -> (java.util.function.Function<Object, Object>) (y) -> (Integer) x + (Integer) y;
+    public static Object intMul = (java.util.function.Function<Object, Object>) (x) -> (java.util.function.Function<Object, Object>) (y) -> (Integer) x * (Integer) y;
+    public static Object numAdd = (java.util.function.Function<Object, Object>) (x) -> (java.util.function.Function<Object, Object>) (y) -> (Double) x + (Double) y;
+    public static Object numMul = (java.util.function.Function<Object, Object>) (x) -> (java.util.function.Function<Object, Object>) (y) -> (Double) x * (Double) y;
+
 
 public static final Object zeroRecord = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("zeroRecord"); };
 public static final Object zero = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("zero"); };

@@ -2,12 +2,11 @@ public class __M$Data_HeytingAlgebra {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Data.HeytingAlgebra"); }
     };
-    public static Object boolConj = FFI_STUB;
-    public static Object boolConj(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.HeytingAlgebra.boolConj"); }
-    public static Object boolDisj = FFI_STUB;
-    public static Object boolDisj(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.HeytingAlgebra.boolDisj"); }
-    public static Object boolNot = FFI_STUB;
-    public static Object boolNot(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.HeytingAlgebra.boolNot"); }
+    // FFI provided by ../javapurs-prelude/src/Data/HeytingAlgebra.java
+    public static Object boolConj = (java.util.function.Function<Object, Object>) (b1) -> (java.util.function.Function<Object, Object>) (b2) -> (Boolean) b1 && (Boolean) b2;
+    public static Object boolDisj = (java.util.function.Function<Object, Object>) (b1) -> (java.util.function.Function<Object, Object>) (b2) -> (Boolean) b1 || (Boolean) b2;
+    public static Object boolNot = (java.util.function.Function<Object, Object>) (b) -> !(Boolean) b;
+
 
 public static final Object ttRecord = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("ttRecord"); };
 public static final Object tt = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("tt"); };

@@ -2,10 +2,22 @@ public class __M$Data_Semigroup {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Data.Semigroup"); }
     };
-    public static Object concatArray = FFI_STUB;
-    public static Object concatArray(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Semigroup.concatArray"); }
-    public static Object concatString = FFI_STUB;
-    public static Object concatString(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Semigroup.concatString"); }
+    // FFI provided by ../javapurs-prelude/src/Data/Semigroup.java
+    public static Object concatString = (java.util.function.Function<Object, Object>) (s1) ->
+        (java.util.function.Function<Object, Object>) (s2) -> ((String) s1) + ((String) s2);
+
+    public static Object concatArray = (java.util.function.Function<Object, Object>) (xs) ->
+        (java.util.function.Function<Object, Object>) (ys) -> {
+            Object[] left = (Object[]) xs;
+            Object[] right = (Object[]) ys;
+            if (left.length == 0) return ys;
+            if (right.length == 0) return xs;
+            Object[] combined = new Object[left.length + right.length];
+            System.arraycopy(left, 0, combined, 0, left.length);
+            System.arraycopy(right, 0, combined, left.length, right.length);
+            return combined;
+        };
+
 
 public static final Object semigroupVoid = (new java.util.function.Supplier<Object>() { public Object get() { final Object __field0 = (java.util.function.Function<Object, Object>) (v_0_i0) -> { return __M$Data_Void.absurd; }; return new __Record$61_70_70_65_6e_64_O(new String[]{"append"}, __field0); } }).get();
 public static final Object semigroupUnit = (new java.util.function.Supplier<Object>() { public Object get() { final Object __field0 = (java.util.function.Function<Object, Object>) (v_0_i0) -> { return (java.util.function.Function<Object, Object>) (v1_1_i1) -> { return __M$Data_Unit.unit; }; }; return new __Record$61_70_70_65_6e_64_O(new String[]{"append"}, __field0); } }).get();

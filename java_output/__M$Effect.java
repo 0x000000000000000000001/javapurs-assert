@@ -2,18 +2,49 @@ public class __M$Effect {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Effect"); }
     };
-    public static Object bindE = FFI_STUB;
-    public static Object bindE(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.bindE"); }
-    public static Object forE = FFI_STUB;
-    public static Object forE(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.forE"); }
-    public static Object foreachE = FFI_STUB;
-    public static Object foreachE(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.foreachE"); }
-    public static Object pureE = FFI_STUB;
-    public static Object pureE(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.pureE"); }
-    public static Object untilE = FFI_STUB;
-    public static Object untilE(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.untilE"); }
-    public static Object whileE = FFI_STUB;
-    public static Object whileE(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Effect.whileE"); }
+    // FFI provided by ../javapurs-effect/src/Effect.java
+    public static Object pureE = (java.util.function.Function<Object, Object>) (a) ->
+        (java.util.function.Supplier<Object>) () -> a;
+
+    public static Object bindE = (java.util.function.Function<Object, Object>) (a) ->
+        (java.util.function.Function<Object, Object>) (f) ->
+        (java.util.function.Supplier<Object>) () ->
+            ((java.util.function.Supplier<Object>) ((java.util.function.Function<Object, Object>) f).apply(((java.util.function.Supplier<Object>) a).get())).get();
+
+    public static Object untilE = (java.util.function.Function<Object, Object>) (f) ->
+        (java.util.function.Supplier<Object>) () -> {
+            while (!((Boolean) ((java.util.function.Supplier<Object>) f).get())) { }
+            return null;
+        };
+
+    public static Object whileE = (java.util.function.Function<Object, Object>) (f) ->
+        (java.util.function.Function<Object, Object>) (a) ->
+        (java.util.function.Supplier<Object>) () -> {
+            while ((Boolean) ((java.util.function.Supplier<Object>) f).get()) {
+                ((java.util.function.Supplier<Object>) a).get();
+            }
+            return null;
+        };
+
+    public static Object forE = (java.util.function.Function<Object, Object>) (lo) ->
+        (java.util.function.Function<Object, Object>) (hi) ->
+        (java.util.function.Function<Object, Object>) (f) ->
+        (java.util.function.Supplier<Object>) () -> {
+            for (int i = (Integer) lo; i < (Integer) hi; i++) {
+                ((java.util.function.Supplier<Object>) ((java.util.function.Function<Object, Object>) f).apply(i)).get();
+            }
+            return null;
+        };
+
+    public static Object foreachE = (java.util.function.Function<Object, Object>) (as) ->
+        (java.util.function.Function<Object, Object>) (f) ->
+        (java.util.function.Supplier<Object>) () -> {
+            for (Object item : (Object[]) as) {
+                ((java.util.function.Supplier<Object>) ((java.util.function.Function<Object, Object>) f).apply(item)).get();
+            }
+            return null;
+        };
+
 
 private static Object __lazy_value_monadEffect;
 private static int __lazy_state_monadEffect;

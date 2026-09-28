@@ -2,10 +2,10 @@ public class __M$Data_Ring {
     public static final Object FFI_STUB = new java.util.function.Function<Object, Object>() {
         public Object apply(Object arg) { throw new UnsupportedOperationException("Missing Java FFI in Data.Ring"); }
     };
-    public static Object intSub = FFI_STUB;
-    public static Object intSub(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Ring.intSub"); }
-    public static Object numSub = FFI_STUB;
-    public static Object numSub(Object... args) { throw new UnsupportedOperationException("Missing Java FFI: Data.Ring.numSub"); }
+    // FFI provided by ../javapurs-prelude/src/Data/Ring.java
+    public static Object intSub = (java.util.function.Function<Object, Object>) (x) -> (java.util.function.Function<Object, Object>) (y) -> (Integer) x - (Integer) y;
+    public static Object numSub = (java.util.function.Function<Object, Object>) (x) -> (java.util.function.Function<Object, Object>) (y) -> (Double) x - (Double) y;
+
 
 public static final Object subRecord = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("subRecord"); };
 public static final Object sub = (java.util.function.Function<Object, Object>) (dict_0_i0) -> { return ((java.util.Map<String, Object>) dict_0_i0).get("sub"); };
